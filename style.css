@@ -1,0 +1,133 @@
+/* makes sizing simpler */
+*,
+*::before,
+::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+:root {
+  --background-grey: hsl(0, 0%, 15.7%);
+  --operators-orange: hsl(36, 100%, 52.2%);
+  --numbers-dark-grey: hsl(0, 0%, 20%);
+  --symbols-light-grey: hsl(0, 0%, 64.7%);
+
+  --operators-hover-orange: hsl(34, 100%, 76%);
+  --numbers-hover-grey: hsl(0, 2%, 62%);
+  --symbols-hover-grey: hsl(0, 0%, 74%);
+}
+
+body {
+  background-image: linear-gradient(
+    rgba(29, 20, 69, 0.551),
+    rgba(27, 39, 52, 0.741)
+  );
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+}
+
+form {
+  display: grid;
+  background-color: black;
+  gap: 0.5rem;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0px 25px var(--symbols-light-grey);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding: 10px;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.operators {
+  background-color: var(--operators-orange);
+  color: white;
+}
+
+.nums,
+.dot {
+  background-color: var(--numbers-dark-grey);
+  color: white;
+}
+
+.symbols {
+  background-color: var(--symbols-light-grey);
+  color: black;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  border: none;
+}
+
+.zero {
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  padding-left: 1.5rem;
+  grid-column: span 2;
+}
+
+input[type="text"] {
+  height: 80px;
+  background-color: var(--numbers-dark-grey);
+  border: none;
+  color: white;
+}
+
+.nums:hover,
+.dot:hover {
+  background-color: var(--numbers-hover-grey);
+}
+
+.operators:hover {
+  background-color: var(--operators-hover-orange);
+}
+
+.symbols:hover {
+  background-color: var(--symbols-hover-grey);
+}
+
+/* input[type="radio"]:focus + label
+input[type="submit"]:active,
+.dot:active {
+  background-color: white;
+  color: black;
+} */
+
+input[type="radio"]:focus + label {
+  background-color: white;
+  color: var(--operators-orange);
+}
